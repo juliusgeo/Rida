@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		55EF517C216C4F2800B7BE69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF517B216C4F2800B7BE69 /* AppDelegate.swift */; };
+		55EF517E216C4F2800B7BE69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF517D216C4F2800B7BE69 /* ViewController.swift */; };
+		55EF5181216C4F2800B7BE69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55EF517F216C4F2800B7BE69 /* Main.storyboard */; };
+		55EF5184216C4F2800B7BE69 /* Rida.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55EF5182216C4F2800B7BE69 /* Rida.xcdatamodeld */; };
+		55EF5186216C4F2900B7BE69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EF5185216C4F2900B7BE69 /* Assets.xcassets */; };
+		55EF5189216C4F2900B7BE69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55EF5187216C4F2900B7BE69 /* LaunchScreen.storyboard */; };
+		55EF5194216C4F2900B7BE69 /* RidaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF5193216C4F2900B7BE69 /* RidaTests.swift */; };
+		55EF519F216C4F2900B7BE69 /* RidaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF519E216C4F2900B7BE69 /* RidaUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		55EF5190216C4F2900B7BE69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55EF5170216C4F2800B7BE69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55EF5177216C4F2800B7BE69;
+			remoteInfo = Rida;
+		};
+		55EF519B216C4F2900B7BE69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55EF5170216C4F2800B7BE69 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55EF5177216C4F2800B7BE69;
+			remoteInfo = Rida;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		55EF5178216C4F2800B7BE69 /* Rida.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rida.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55EF517B216C4F2800B7BE69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		55EF517D216C4F2800B7BE69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55EF5180216C4F2800B7BE69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		55EF5183216C4F2800B7BE69 /* Rida.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rida.xcdatamodel; sourceTree = "<group>"; };
+		55EF5185216C4F2900B7BE69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		55EF5188216C4F2900B7BE69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		55EF518A216C4F2900B7BE69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55EF518F216C4F2900B7BE69 /* RidaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55EF5193216C4F2900B7BE69 /* RidaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidaTests.swift; sourceTree = "<group>"; };
+		55EF5195216C4F2900B7BE69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55EF519A216C4F2900B7BE69 /* RidaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55EF519E216C4F2900B7BE69 /* RidaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidaUITests.swift; sourceTree = "<group>"; };
+		55EF51A0216C4F2900B7BE69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		55EF5175216C4F2800B7BE69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55EF518C216C4F2900B7BE69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55EF5197216C4F2900B7BE69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		55EF516F216C4F2800B7BE69 = {
+			isa = PBXGroup;
+			children = (
+				55EF517A216C4F2800B7BE69 /* Rida */,
+				55EF5192216C4F2900B7BE69 /* RidaTests */,
+				55EF519D216C4F2900B7BE69 /* RidaUITests */,
+				55EF5179216C4F2800B7BE69 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		55EF5179216C4F2800B7BE69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				55EF5178216C4F2800B7BE69 /* Rida.app */,
+				55EF518F216C4F2900B7BE69 /* RidaTests.xctest */,
+				55EF519A216C4F2900B7BE69 /* RidaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		55EF517A216C4F2800B7BE69 /* Rida */ = {
+			isa = PBXGroup;
+			children = (
+				55EF517B216C4F2800B7BE69 /* AppDelegate.swift */,
+				55EF517D216C4F2800B7BE69 /* ViewController.swift */,
+				55EF517F216C4F2800B7BE69 /* Main.storyboard */,
+				55EF5185216C4F2900B7BE69 /* Assets.xcassets */,
+				55EF5187216C4F2900B7BE69 /* LaunchScreen.storyboard */,
+				55EF518A216C4F2900B7BE69 /* Info.plist */,
+				55EF5182216C4F2800B7BE69 /* Rida.xcdatamodeld */,
+			);
+			path = Rida;
+			sourceTree = "<group>";
+		};
+		55EF5192216C4F2900B7BE69 /* RidaTests */ = {
+			isa = PBXGroup;
+			children = (
+				55EF5193216C4F2900B7BE69 /* RidaTests.swift */,
+				55EF5195216C4F2900B7BE69 /* Info.plist */,
+			);
+			path = RidaTests;
+			sourceTree = "<group>";
+		};
+		55EF519D216C4F2900B7BE69 /* RidaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				55EF519E216C4F2900B7BE69 /* RidaUITests.swift */,
+				55EF51A0216C4F2900B7BE69 /* Info.plist */,
+			);
+			path = RidaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		55EF5177216C4F2800B7BE69 /* Rida */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55EF51A3216C4F2900B7BE69 /* Build configuration list for PBXNativeTarget "Rida" */;
+			buildPhases = (
+				55EF5174216C4F2800B7BE69 /* Sources */,
+				55EF5175216C4F2800B7BE69 /* Frameworks */,
+				55EF5176216C4F2800B7BE69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rida;
+			productName = Rida;
+			productReference = 55EF5178216C4F2800B7BE69 /* Rida.app */;
+			productType = "com.apple.product-type.application";
+		};
+		55EF518E216C4F2900B7BE69 /* RidaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55EF51A6216C4F2900B7BE69 /* Build configuration list for PBXNativeTarget "RidaTests" */;
+			buildPhases = (
+				55EF518B216C4F2900B7BE69 /* Sources */,
+				55EF518C216C4F2900B7BE69 /* Frameworks */,
+				55EF518D216C4F2900B7BE69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55EF5191216C4F2900B7BE69 /* PBXTargetDependency */,
+			);
+			name = RidaTests;
+			productName = RidaTests;
+			productReference = 55EF518F216C4F2900B7BE69 /* RidaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		55EF5199216C4F2900B7BE69 /* RidaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55EF51A9216C4F2900B7BE69 /* Build configuration list for PBXNativeTarget "RidaUITests" */;
+			buildPhases = (
+				55EF5196216C4F2900B7BE69 /* Sources */,
+				55EF5197216C4F2900B7BE69 /* Frameworks */,
+				55EF5198216C4F2900B7BE69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55EF519C216C4F2900B7BE69 /* PBXTargetDependency */,
+			);
+			name = RidaUITests;
+			productName = RidaUITests;
+			productReference = 55EF519A216C4F2900B7BE69 /* RidaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		55EF5170216C4F2800B7BE69 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Julius Park";
+				TargetAttributes = {
+					55EF5177216C4F2800B7BE69 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					55EF518E216C4F2900B7BE69 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 55EF5177216C4F2800B7BE69;
+					};
+					55EF5199216C4F2900B7BE69 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 55EF5177216C4F2800B7BE69;
+					};
+				};
+			};
+			buildConfigurationList = 55EF5173216C4F2800B7BE69 /* Build configuration list for PBXProject "Rida" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 55EF516F216C4F2800B7BE69;
+			productRefGroup = 55EF5179216C4F2800B7BE69 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				55EF5177216C4F2800B7BE69 /* Rida */,
+				55EF518E216C4F2900B7BE69 /* RidaTests */,
+				55EF5199216C4F2900B7BE69 /* RidaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		55EF5176216C4F2800B7BE69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55EF5189216C4F2900B7BE69 /* LaunchScreen.storyboard in Resources */,
+				55EF5186216C4F2900B7BE69 /* Assets.xcassets in Resources */,
+				55EF5181216C4F2800B7BE69 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55EF518D216C4F2900B7BE69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55EF5198216C4F2900B7BE69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		55EF5174216C4F2800B7BE69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55EF517E216C4F2800B7BE69 /* ViewController.swift in Sources */,
+				55EF517C216C4F2800B7BE69 /* AppDelegate.swift in Sources */,
+				55EF5184216C4F2800B7BE69 /* Rida.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55EF518B216C4F2900B7BE69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55EF5194216C4F2900B7BE69 /* RidaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55EF5196216C4F2900B7BE69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55EF519F216C4F2900B7BE69 /* RidaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		55EF5191216C4F2900B7BE69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55EF5177216C4F2800B7BE69 /* Rida */;
+			targetProxy = 55EF5190216C4F2900B7BE69 /* PBXContainerItemProxy */;
+		};
+		55EF519C216C4F2900B7BE69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55EF5177216C4F2800B7BE69 /* Rida */;
+			targetProxy = 55EF519B216C4F2900B7BE69 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		55EF517F216C4F2800B7BE69 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55EF5180216C4F2800B7BE69 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		55EF5187216C4F2900B7BE69 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55EF5188216C4F2900B7BE69 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		55EF51A1216C4F2900B7BE69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		55EF51A2216C4F2900B7BE69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		55EF51A4216C4F2900B7BE69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GBFH8S6FUE;
+				INFOPLIST_FILE = Rida/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = juliuspark.Rida;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		55EF51A5216C4F2900B7BE69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GBFH8S6FUE;
+				INFOPLIST_FILE = Rida/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = juliuspark.Rida;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		55EF51A7216C4F2900B7BE69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GBFH8S6FUE;
+				INFOPLIST_FILE = RidaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = juliuspark.RidaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rida.app/Rida";
+			};
+			name = Debug;
+		};
+		55EF51A8216C4F2900B7BE69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GBFH8S6FUE;
+				INFOPLIST_FILE = RidaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = juliuspark.RidaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rida.app/Rida";
+			};
+			name = Release;
+		};
+		55EF51AA216C4F2900B7BE69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GBFH8S6FUE;
+				INFOPLIST_FILE = RidaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = juliuspark.RidaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Rida;
+			};
+			name = Debug;
+		};
+		55EF51AB216C4F2900B7BE69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GBFH8S6FUE;
+				INFOPLIST_FILE = RidaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = juliuspark.RidaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Rida;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		55EF5173216C4F2800B7BE69 /* Build configuration list for PBXProject "Rida" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55EF51A1216C4F2900B7BE69 /* Debug */,
+				55EF51A2216C4F2900B7BE69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55EF51A3216C4F2900B7BE69 /* Build configuration list for PBXNativeTarget "Rida" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55EF51A4216C4F2900B7BE69 /* Debug */,
+				55EF51A5216C4F2900B7BE69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55EF51A6216C4F2900B7BE69 /* Build configuration list for PBXNativeTarget "RidaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55EF51A7216C4F2900B7BE69 /* Debug */,
+				55EF51A8216C4F2900B7BE69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55EF51A9216C4F2900B7BE69 /* Build configuration list for PBXNativeTarget "RidaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55EF51AA216C4F2900B7BE69 /* Debug */,
+				55EF51AB216C4F2900B7BE69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		55EF5182216C4F2800B7BE69 /* Rida.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				55EF5183216C4F2800B7BE69 /* Rida.xcdatamodel */,
+			);
+			currentVersion = 55EF5183216C4F2800B7BE69 /* Rida.xcdatamodel */;
+			path = Rida.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 55EF5170216C4F2800B7BE69 /* Project object */;
+}
