@@ -26,12 +26,26 @@ class Ride {
 }
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     //Properties
+    @IBOutlet weak var recordButtonContent: UIButton!
     @IBOutlet weak var Map: MKMapView!
     var isRecording = false
     var curRide:Ride? = nil
     @IBAction func recordButton(_ sender: UIButton, forEvent event: UIEvent) {
-        curRide = Ride()
-        isRecording = true
+        isRecording = !isRecording
+        if(isRecording == false && curRide != nil){
+            //save ride
+            curRide = nil
+        }
+        else if(curRide == nil){
+            curRide = Ride()
+        }
+        if(isRecording ==  true){
+            recordButtonContent.setTitle("End", for: .normal)
+        }
+        else if(isRecording == false){
+            recordButtonContent.setTitle("Start", for: .normal)
+        }
+        print(isRecording)
     }
     var locationManager: CLLocationManager = CLLocationManager()
     
@@ -40,8 +54,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.distanceFilter = 1
         locationManager.startUpdatingLocation()
+        Map.delegate = self
         Map.showsUserLocation = true
     }
     
@@ -53,8 +68,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let lastLocation: CLLocation = locations[locations.count - 1]
         animateMap(lastLocation)
-        drawLine(line: (curRide?.points)!)
-        
+        if(curRide != nil){
+            if(isRecording == true){
+                curRide!.points.append(Point(coord: lastLocation))
+                drawLine(line: (curRide?.points)!)
+            }
+        }
     }
     
     func animateMap(_ location: CLLocation) {
@@ -66,7 +85,26 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         for point in line {
             coords.append(point.coord.coordinate as CLLocationCoordinate2D)
         }
+        Map.removeOverlays(Map.overlays)
+        print(MKPolyline.init(coordinates: &coords, count: coords.count))
         Map.addOverlay(MKPolyline.init(coordinates: &coords, count: coords.count))
+    }
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKCircle {
+            let renderer = MKCircleRenderer(overlay: overlay)
+            renderer.fillColor = UIColor.black.withAlphaComponent(0.5)
+            renderer.strokeColor = UIColor.blue
+            renderer.lineWidth = 2
+            return renderer
+            
+        } else if overlay is MKPolyline {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.orange
+            renderer.lineWidth = 3
+            return renderer
+        }
+        
+        return MKOverlayRenderer()
     }
     
 
