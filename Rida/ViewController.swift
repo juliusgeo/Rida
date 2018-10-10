@@ -10,20 +10,23 @@ import UIKit
 import MapKit
 import CoreData
 
-class Point {
-    let coord: CLLocation
-    let time: Float64
-    init(coord: CLLocation){
-        self.coord = coord
-        self.time = Date().timeIntervalSinceReferenceDate
+class RideGeometry: NSObject, NSCoding{
+    func encode(with coder: NSCoder) {
+        coder.encode(self.points, forKey: "points")
+        coder.encode(self.creationTime, forKey: "creationTime")
     }
-}
-class RideGeometry: NSObject{
-    var points: Array<Point>
+    
+    required convenience init?(coder decoder: NSCoder) {
+        let points = decoder.decodeObject(forKey: "points") as? Array<CLLocation>
+        guard let creationTime = decoder.decodeObject(forKey: "creationTime") as? Float64 else {return nil}
+        self.init(points: points!, creationTime: creationTime)
+    }
+    
+    var points: Array<CLLocation>
     let creationTime: Float64
-    override init(){
-        self.points = Array<Point>()
-        self.creationTime = Date().timeIntervalSinceReferenceDate
+    init(points: Array<CLLocation> = Array<CLLocation>(), creationTime: Float64 = Date().timeIntervalSinceReferenceDate){
+        self.points = points
+        self.creationTime = creationTime
     }
 }
 
@@ -41,7 +44,9 @@ class ViewController: UIViewController{
         fetchRides()
         isRecording = !isRecording
         if(isRecording == false && curRide != nil){
-            saveRide(rideGeometry: (curRide?.rideGeometry? as! RideGeometry))
+            if(curRide?.rideGeometry !=  nil){
+                saveRide(rideGeometry: (curRide?.rideGeometry as! RideGeometry))
+            }
             curRide = nil
         }
         else if(isRecording ==  true && curRide == nil){
@@ -50,6 +55,7 @@ class ViewController: UIViewController{
             }
             let managedContext = appDelegate.persistentContainer.viewContext
             curRide = Ride.init(entity: NSEntityDescription.entity(forEntityName: "Ride", in:managedContext)!, insertInto: managedContext)
+            curRide?.rideGeometry = RideGeometry()
         }
         if(isRecording ==  true){
             recordButtonContent.setTitle("End", for: .normal)
@@ -114,8 +120,8 @@ extension ViewController: CLLocationManagerDelegate{
         animateMap(lastLocation)
         if(curRide != nil){
             if(isRecording == true){
-                (curRide!.rideGeometry as! RideGeometry).points.append(Point(coord: lastLocation))
-                drawLine(line: ((curRide!.rideGeometry as! RideGeometry).points))
+                (curRide!.rideGeometry as! RideGeometry).points.append(lastLocation)
+                drawLine(line: (curRide!.rideGeometry as! RideGeometry).points)
             }
         }
     }
@@ -141,10 +147,10 @@ extension ViewController: MKMapViewDelegate{
         
         return MKOverlayRenderer()
     }
-    func drawLine(line: Array<Point>){
+    func drawLine(line: Array<CLLocation>){
         var coords = Array<CLLocationCoordinate2D>()
         for point in line {
-            coords.append(point.coord.coordinate as CLLocationCoordinate2D)
+            coords.append(point.coordinate as CLLocationCoordinate2D)
         }
         Map.removeOverlays(Map.overlays)
         print(MKPolyline.init(coordinates: &coords, count: coords.count))
