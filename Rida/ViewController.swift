@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import CoreData
+
 class Point {
     let coord: CLLocation
     let time: Float64
@@ -16,7 +18,7 @@ class Point {
         self.time = Date().timeIntervalSinceReferenceDate
     }
 }
-class Ride {
+class RideGeometry {
     var points: Array<Point>
     let creationTime: Float64
     init(){
@@ -24,20 +26,22 @@ class Ride {
         self.creationTime = Date().timeIntervalSinceReferenceDate
     }
 }
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController{
     //Properties
     @IBOutlet weak var recordButtonContent: UIButton!
     @IBOutlet weak var Map: MKMapView!
+    
+    //global vars
     var isRecording = false
-    var curRide:Ride? = nil
+    var curRide:RideGeometry? = nil
     @IBAction func recordButton(_ sender: UIButton, forEvent event: UIEvent) {
         isRecording = !isRecording
         if(isRecording == false && curRide != nil){
             //save ride
             curRide = nil
         }
-        else if(curRide == nil){
-            curRide = Ride()
+        else if(isRecording ==  true && curRide == nil){
+            curRide = RideGeometry()
         }
         if(isRecording ==  true){
             recordButtonContent.setTitle("End", for: .normal)
@@ -47,8 +51,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
         print(isRecording)
     }
-    var locationManager: CLLocationManager = CLLocationManager()
     
+    var locationManager: CLLocationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -65,6 +70,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         // Dispose of any resources that can be recreated.
     }
     
+   
+
+}
+
+//location manager stuff
+extension ViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let lastLocation: CLLocation = locations[locations.count - 1]
         animateMap(lastLocation)
@@ -75,20 +86,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
         }
     }
-    
-    func animateMap(_ location: CLLocation) {
-        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        Map.setRegion(region, animated: true)
-    }
-    func drawLine(line: Array<Point>){
-        var coords = Array<CLLocationCoordinate2D>()
-        for point in line {
-            coords.append(point.coord.coordinate as CLLocationCoordinate2D)
-        }
-        Map.removeOverlays(Map.overlays)
-        print(MKPolyline.init(coordinates: &coords, count: coords.count))
-        Map.addOverlay(MKPolyline.init(coordinates: &coords, count: coords.count))
-    }
+}
+
+//map stuff
+extension ViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKCircle {
             let renderer = MKCircleRenderer(overlay: overlay)
@@ -106,7 +107,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         return MKOverlayRenderer()
     }
-    
-
+    func drawLine(line: Array<Point>){
+        var coords = Array<CLLocationCoordinate2D>()
+        for point in line {
+            coords.append(point.coord.coordinate as CLLocationCoordinate2D)
+        }
+        Map.removeOverlays(Map.overlays)
+        print(MKPolyline.init(coordinates: &coords, count: coords.count))
+        Map.addOverlay(MKPolyline.init(coordinates: &coords, count: coords.count))
+    }
+    func animateMap(_ location: CLLocation) {
+        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        Map.setRegion(region, animated: true)
+    }
 }
 
