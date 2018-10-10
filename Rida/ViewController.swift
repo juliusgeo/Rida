@@ -45,7 +45,7 @@ class ViewController: UIViewController{
         isRecording = !isRecording
         if(isRecording == false && curRide != nil){
             if(curRide?.rideGeometry !=  nil){
-                saveRide(rideGeometry: (curRide?.rideGeometry as! RideGeometry))
+                saveRide()
             }
             curRide = nil
         }
@@ -68,6 +68,8 @@ class ViewController: UIViewController{
     
     var locationManager: CLLocationManager = CLLocationManager()
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
@@ -76,22 +78,39 @@ class ViewController: UIViewController{
         locationManager.startUpdatingLocation()
         Map.delegate = self
         Map.showsUserLocation = true
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Ride")
+        
+        // Create Batch Delete Request
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedContext.execute(batchDeleteRequest)
+            
+        } catch {
+            // Error Handling
+        }
     }
     
-    func saveRide(rideGeometry: RideGeometry!){
+    func saveRide(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
         }
         let managedContext = appDelegate.persistentContainer.viewContext
-        let rideEntity = NSEntityDescription.entity(forEntityName: "Ride", in: managedContext)!
-        let ride = NSManagedObject(entity: rideEntity, insertInto: managedContext)
-        ride.setValue(rideGeometry, forKeyPath: "rideGeometry")
+        if(curRide?.rideGeometry == nil){
+            curRide?.rideGeometry = RideGeometry()
+        }
+        curRide!.setValue(curRide?.rideGeometry, forKeyPath: "rideGeometry")
         
         do {
             try managedContext.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        fetchRides()
     }
     
     func fetchRides(){
@@ -101,7 +120,10 @@ class ViewController: UIViewController{
         let managedContext = appDelegate.persistentContainer.viewContext
         let rideFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Ride")
         let rideResults = try! managedContext.fetch(rideFetch)
-        print(rideResults)
+        for ride in rideResults{
+            print((ride as! Ride).rideGeometry)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

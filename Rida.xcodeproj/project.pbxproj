@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		552D841C216E483F000C96AC /* RideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D841B216E483F000C96AC /* RideViewController.swift */; };
+		552D841E216EA126000C96AC /* RideInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D841D216EA126000C96AC /* RideInfoViewController.swift */; };
 		55EF517C216C4F2800B7BE69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF517B216C4F2800B7BE69 /* AppDelegate.swift */; };
 		55EF517E216C4F2800B7BE69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EF517D216C4F2800B7BE69 /* ViewController.swift */; };
 		55EF5181216C4F2800B7BE69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55EF517F216C4F2800B7BE69 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		552D841B216E483F000C96AC /* RideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewController.swift; sourceTree = "<group>"; };
+		552D841D216EA126000C96AC /* RideInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideInfoViewController.swift; sourceTree = "<group>"; };
 		55EF5178216C4F2800B7BE69 /* Rida.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rida.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55EF517B216C4F2800B7BE69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55EF517D216C4F2800B7BE69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				55EF517B216C4F2800B7BE69 /* AppDelegate.swift */,
 				55EF517D216C4F2800B7BE69 /* ViewController.swift */,
+				552D841D216EA126000C96AC /* RideInfoViewController.swift */,
 				552D841B216E483F000C96AC /* RideViewController.swift */,
 				55EF517F216C4F2800B7BE69 /* Main.storyboard */,
 				55EF5185216C4F2900B7BE69 /* Assets.xcassets */,
@@ -264,6 +267,7 @@
 			files = (
 				55EF517E216C4F2800B7BE69 /* ViewController.swift in Sources */,
 				55EF517C216C4F2800B7BE69 /* AppDelegate.swift in Sources */,
+				552D841E216EA126000C96AC /* RideInfoViewController.swift in Sources */,
 				552D841C216E483F000C96AC /* RideViewController.swift in Sources */,
 				55EF5184216C4F2800B7BE69 /* Rida.xcdatamodeld in Sources */,
 			);
