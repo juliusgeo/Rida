@@ -18,14 +18,16 @@ class Point {
         self.time = Date().timeIntervalSinceReferenceDate
     }
 }
-class RideGeometry {
+class RideGeometry: NSObject{
     var points: Array<Point>
     let creationTime: Float64
-    init(){
+    override init(){
         self.points = Array<Point>()
         self.creationTime = Date().timeIntervalSinceReferenceDate
     }
 }
+
+
 class ViewController: UIViewController{
     //Properties
     @IBOutlet weak var recordButtonContent: UIButton!
@@ -33,15 +35,21 @@ class ViewController: UIViewController{
     
     //global vars
     var isRecording = false
-    var curRide:RideGeometry? = nil
+    var curRide:Ride? = nil
+    
     @IBAction func recordButton(_ sender: UIButton, forEvent event: UIEvent) {
+        fetchRides()
         isRecording = !isRecording
         if(isRecording == false && curRide != nil){
-            //save ride
+            saveRide(rideGeometry: (curRide?.rideGeometry? as! RideGeometry))
             curRide = nil
         }
         else if(isRecording ==  true && curRide == nil){
-            curRide = RideGeometry()
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            curRide = Ride.init(entity: NSEntityDescription.entity(forEntityName: "Ride", in:managedContext)!, insertInto: managedContext)
         }
         if(isRecording ==  true){
             recordButtonContent.setTitle("End", for: .normal)
@@ -53,7 +61,6 @@ class ViewController: UIViewController{
     }
     
     var locationManager: CLLocationManager = CLLocationManager()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -63,6 +70,32 @@ class ViewController: UIViewController{
         locationManager.startUpdatingLocation()
         Map.delegate = self
         Map.showsUserLocation = true
+    }
+    
+    func saveRide(rideGeometry: RideGeometry!){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let rideEntity = NSEntityDescription.entity(forEntityName: "Ride", in: managedContext)!
+        let ride = NSManagedObject(entity: rideEntity, insertInto: managedContext)
+        ride.setValue(rideGeometry, forKeyPath: "rideGeometry")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func fetchRides(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let rideFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Ride")
+        let rideResults = try! managedContext.fetch(rideFetch)
+        print(rideResults)
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,12 +114,13 @@ extension ViewController: CLLocationManagerDelegate{
         animateMap(lastLocation)
         if(curRide != nil){
             if(isRecording == true){
-                curRide!.points.append(Point(coord: lastLocation))
-                drawLine(line: (curRide?.points)!)
+                (curRide!.rideGeometry as! RideGeometry).points.append(Point(coord: lastLocation))
+                drawLine(line: ((curRide!.rideGeometry as! RideGeometry).points))
             }
         }
     }
 }
+
 
 //map stuff
 extension ViewController: MKMapViewDelegate{
