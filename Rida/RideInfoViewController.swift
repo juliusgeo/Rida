@@ -6,23 +6,15 @@
 //  Copyright © 2018 Julius Park. All rights reserved.
 //
 
-import Foundation
-//
-//  ViewController.swift
-//  Rida
-//
-//  Created by Julius Park on 10/8/18.
-//  Copyright © 2018 Julius Park. All rights reserved.
-//
-
 import UIKit
 import MapKit
 
 class RideInfoViewController: UIViewController{
     
-    @IBOutlet weak var Map: MKMapView!
+    @IBOutlet weak var RideMap: MKMapView!
     @IBOutlet weak var distanceText: UILabel!
     @IBOutlet weak var elevationText: UILabel!
+    
     
     //global vars
     var curRide:Ride? = nil
@@ -62,12 +54,12 @@ extension RideInfoViewController: MKMapViewDelegate{
         for point in line {
             coords.append(point.coordinate as CLLocationCoordinate2D)
         }
-        Map.removeOverlays(Map.overlays)
+        RideMap.removeOverlays(RideMap.overlays)
         print(MKPolyline.init(coordinates: &coords, count: coords.count))
-        Map.addOverlay(MKPolyline.init(coordinates: &coords, count: coords.count))
+        RideMap.addOverlay(MKPolyline.init(coordinates: &coords, count: coords.count))
     }
     func animateMap(_ location: CLLocation) {
         let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        Map.setRegion(region, animated: true)
+        RideMap.setRegion(region, animated: true)
     }
 }
