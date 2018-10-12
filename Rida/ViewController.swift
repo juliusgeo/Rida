@@ -56,6 +56,12 @@ class ViewController: UIViewController{
             let managedContext = appDelegate.persistentContainer.viewContext
             curRide = Ride.init(entity: NSEntityDescription.entity(forEntityName: "Ride", in:managedContext)!, insertInto: managedContext)
             curRide?.rideGeometry = RideGeometry()
+            do {
+                try managedContext.save()
+                print(curRide);
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
         }
         if(isRecording ==  true){
             recordButtonContent.setTitle("End", for: .normal)
@@ -107,25 +113,11 @@ class ViewController: UIViewController{
         
         do {
             try managedContext.save()
+            print(curRide);
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        fetchRides()
     }
-    
-    func fetchRides(){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let rideFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Ride")
-        let rideResults = try! managedContext.fetch(rideFetch)
-        for ride in rideResults{
-            print((ride as! Ride).rideGeometry)
-        }
-        
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

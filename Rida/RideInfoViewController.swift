@@ -21,12 +21,20 @@ class RideInfoViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(curRide!)
+        animateMap((curRide?.rideGeometry as! RideGeometry).points[0])
+        drawLine(line: (curRide?.rideGeometry as! RideGeometry).points)
+        distanceText.text = String(format:"%f", getDistance(points: (curRide?.rideGeometry as! RideGeometry).points));
     }
-    
+    func getDistance(points: Array<CLLocation>) -> Double{
+        var accum:Double = 0;
+        for i in 0...points.count-1
+        {    accum += points[i].distance(from: points[i+1])
+        }
+        return accum;
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        print(curRide!)
-        drawLine(line: (curRide?.rideGeometry as! RideGeometry).points)
         
     }
 }
